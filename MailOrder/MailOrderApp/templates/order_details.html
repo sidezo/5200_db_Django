@@ -1,0 +1,23 @@
+<!-- order_details.html -->
+<html>
+<head>
+    <title>Order Details</title>
+</head>
+<body>
+    <h1>Order Details for Order #{{ order.ono }}</h1>
+    <p><strong>Customer:</strong> {{ customer.cname }} ({{ customer.cno }})</p>
+    <p><strong>ZIP Code:</strong> {{ customer.zip }}</p>
+    <p><strong>Taken By:</strong> <!-- Employee Name Here --></p>
+    <p><strong>Received On:</strong> {{ order.received }}</p>
+    <p><strong>Shipped On:</strong> {{ order.shipped }}</p>
+    <h2>Order Items:</h2>
+    <ul>
+        {% for detail in details %}
+        <li>
+            Part #{{ detail.part_no }} - {{ detail.part_name }}: {{ detail.quantity }} at ${{ detail.price }} each (Subtotal: ${{ detail.subtotal }})
+        </li>
+        {% endfor %}
+    </ul>
+    <p><strong>Total:</strong> ${{ total }}</p>
+</body>
+</html>
